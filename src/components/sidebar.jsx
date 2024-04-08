@@ -2,7 +2,7 @@ import React, {useState,} from "react";
 import { useSelector } from "react-redux";
 import { selectUser } from "../slices/user.slice";
 import{Link, useLocation} from "react-router-dom";
-import SidebarMenu from "./menu/SidebarMenu";
+import SidebarMenu from "./Menu/SidebarMenu";
 import { getFeedback } from "../services/feedback.service";
 import { Rating } from "react-simple-star-rating";
 import SERVER_PATH from "../constants/SERVER_PATH";

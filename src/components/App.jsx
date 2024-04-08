@@ -1,13 +1,10 @@
 import { useEffect } from 'react';
-import Header from "./Header";
-import { fetchUser, selectUserStatus } from '../slices/user.slice';
-import '../scss/swiper.css'
-import Footer from './Footer'
-import {
-    useDispatch,
-    useSelector
-} from 'react-redux';
+import { useDispatch, useSelector} from 'react-redux';
 import { Routes, Route, useLocation, useNavigate, matchPath } from "react-router-dom";
+import { fetchUser, selectUserStatus } from '../slices/user.slice';
+import Footer from "../UI/Footer/FooterDesktop";
+import Toolbar from "../UI/Toolbar/Toolbar";
+import '../scss/swiper.css'
 
 import Home from "./Home";
 import PickLog from "./Registration/pick-log";
@@ -118,7 +115,7 @@ function App() {
     return (
         <div className='hhun'>
             <Notifications />
-            <Header />
+            <Toolbar />
             <main>
                 <Routes>
                     <Route>
@@ -181,9 +178,7 @@ function App() {
                     </Route>
                 </Routes>
             </main>
-            {__location__.pathname.includes("/chat") || (
-                <Footer />
-            )}
+            {__location__.pathname.includes("/chat") || <Footer /> }
         </div>
     );
 }

@@ -2,13 +2,15 @@ import React, { useState } from 'react';
 import '../../scss/style.css'
 import DropdownService from "../dropdownService";
 import {Link} from 'react-router-dom'
+import ListItem from "../ListItem/ListItem";
 
 
 
 const Menu = ({ active, setActive }) => {
-    const [visibleCountry, setVisibleCountry] = useState(false)
-    const [visibleService, setVisibleService] = useState(false)
-    const [menuActive, setMenuActive] = useState(false)
+    const [visibleCountry, setVisibleCountry] = useState<boolean>(false);
+    const [visibleService, setVisibleService] = useState<boolean>(false);
+    const [menuActive, setMenuActive] = useState<boolean>(false);
+
     return (
         <div className={active ? 'menu active' : 'menu'} onClick={() => setActive(false)}>
             <div className="menu__content" onClick={e => e.stopPropagation()}>
@@ -21,21 +23,11 @@ const Menu = ({ active, setActive }) => {
                     </Link>
                 </div> */}
                 <ul>
-                    <li onClick={() => setActive(false)}>
-                        <a href="#footer">Услуги</a>
-                    </li>
-                    <li onClick={() => setActive(false)}>
-                        <a href="#">Город</a>
-                    </li>
-                    <li onClick={() => setActive(false)}>
-                        <a href="#">Статьи</a>
-                    </li>
-                    <li onClick={() => setActive(false)}>
-                        <a href="#">Отзывы</a>
-                    </li>
-                    <li onClick={() => setActive(false)}>
-                        <a href="#">Контакты</a>
-                    </li>
+                    <ListItem link="#footer" name="Услуги" onClick={() => setActive(false)} />
+                    <ListItem link="#" name="Город" onClick={() => setActive(false)} />
+                    <ListItem link="#" name="Статьи" onClick={() => setActive(false)} />
+                    <ListItem link="#" name="Отзывы" onClick={() => setActive(false)} />
+                    <ListItem link="#" name="Контакты" onClick={() => setActive(false)} />
                 </ul>
             </div>
         </div>
