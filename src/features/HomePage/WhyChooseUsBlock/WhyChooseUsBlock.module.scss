@@ -1,7 +1,8 @@
 @use '../../../styles/mixins';
 
 .whyChooseUsBlock {
-  margin: 60px 0 180px 0;
+  margin-top: 60px;
+  margin-bottom: 180px;
 
   &_title {
     font-size: 46px;
