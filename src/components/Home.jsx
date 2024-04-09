@@ -16,6 +16,7 @@ import {
     getCovers
 } from '../services/index.service';
 import SERVER_PATH from '../constants/SERVER_PATH';
+import WhyChooseUsBlock from "../features/HomePage/WhyChooseUsBlock/WhyChooseUsBlock";
 
 function App() {
     const counters = useService(getCounters, {})
@@ -73,7 +74,9 @@ function App() {
                     </Swiper>
                 </div>
             </section>
-            <Depature />
+            {/*<Depature />*/}
+            {/*Заменила Depature на WhyChooseUsBlock для оптимизации и ориентировки по стилям*/}
+            <WhyChooseUsBlock />
             <Order />
             <Articles />
         </main>

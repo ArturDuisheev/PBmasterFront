@@ -5,6 +5,7 @@ import { fetchUser, selectUserStatus } from '../slices/user.slice';
 import Footer from "../UI/Footer/FooterDesktop";
 import Toolbar from "../UI/Toolbar/Toolbar";
 import '../scss/swiper.css'
+import '../App.scss'; // Добавила файл, что бы добавить стили для контейнера
 
 import Home from "./Home";
 import PickLog from "./Registration/pick-log";
