@@ -1,22 +1,31 @@
 import React, {useState} from 'react';
-import './Toolbar.module.scss';
 import {useSelector} from "react-redux";
+import {Link} from "react-router-dom";
+import SERVER_PATH from "../../constants/SERVER_PATH";
+import {List} from "rsuite";
 import {selectUI} from "../../slices/ui.slice";
 import {selectUser} from "../../slices/user.slice";
 import {selectUnreadMessages} from "../../slices/messages.slice";
-import {Link} from "react-router-dom";
-import DropdownService from "../../components/dropdownService";
-import DropdownCountry from "../../components/dropdownCountry";
-import SERVER_PATH from "../../constants/SERVER_PATH";
 import DropdownSetout from "../../components/dropdownSetout";
-import Menu from "../../components/Menu/Menu";
-import {List} from "rsuite";
 import ListItem from "../../components/ListItem/ListItem";
+import ToolbarButtons from "./components /ToolbarButtons/ToolbarButtons";
+import MobileMenu from "./MobileMenu";
+import ServiceDropdown from "../../components/DropDown/ServiceDropdown/ServiceDropdown";
+import arrowDown from '../../img/header/icons/arrow-down-icon.svg';
+import logo from '../../img/header/new-logo.svg';
+import styles from './Toolbar.module.scss';
+
+// Исправила и буду исправлять порядок импортов во всем проекте . Лучше импортировать в следующем порядке:
+// 1: импорты React
+// 2: импорты зависимостей
+// 3: компонентов
+// 4: стилей
 
 const Toolbar = () => {
   const [visibleCountry, setVisibleCountry] = useState<boolean>(false);
   const [visibleSetout, setVisibleSetout] = useState<boolean>(false);
   const [menuActive, setMenuActive] = useState<boolean>(false);
+  const [serviceDropdown, setServiceDropdown] = useState<boolean>(false);
 
   const ui = useSelector(selectUI);
   const user = useSelector(selectUser);
@@ -24,35 +33,45 @@ const Toolbar = () => {
 
   return (
     <header>
-      <div className="container">
-        <Link to="/" className='a-logo'>
-          <img className='logo' src="/img/new-logo.svg" alt="Logo"/>
+      <div className={`${styles.toolbar} appContainer`}>
+        {/*Заменила лого по требованию ТЗ*/}
+        <Link to="/" className={styles.toolbar_logo}>
+          <img className={styles.toolbar_logo_img} src={logo} alt="Logo"/>
         </Link>
-        <ul className="header__list">
-          <li className="bldropdown">
-            <DropdownService>
-              <div onClick={() => {
-                setVisibleCountry(false)
-                setVisibleSetout(false)
-              }}>
-                <span className="header__link">Услуги</span>
-                <img src="/img/afdsfads.png" alt=""/>
-              </div>
-            </DropdownService>
-          </li>
-          <li className="dropdown">
-            <div onClick={() => {
-              setVisibleCountry(!visibleCountry)
-              setVisibleSetout(false)
-            }}>
-              <span className="header__link">Город</span>
-              <img src="/img/afdsfads.png" alt=""/>
+        <ul className={styles.toolbar_lists}>
+          <li className={styles.toolbar_lists_item}>
+            <span className={styles.toolbar_lists_item_link}>Услуги</span>
+            <img
+              className={styles.toolbar_lists_item_link_arrow}
+              src={arrowDown}
+              alt=""
+              style={{ transform: serviceDropdown ? 'rotate(-90deg)' : 'rotate(0deg)', transition: 'transform 1s ease' }}
+              onClick={() => setServiceDropdown(!serviceDropdown)}
+            />
+            {/*Вынесла в отдельный компонент dropdown для услуг что бы сократить код и добавила стили для плавного появления списка*/}
+            <div
+              className={`${styles.toolbar_lists_item_link_serviceDropdown} ${serviceDropdown ? styles.dropdownOpen : ''}`}
+              style={{
+                maxHeight: serviceDropdown ? '500px' : '0',
+                overflowY: serviceDropdown ? 'auto' : 'hidden',
+                overflowX: 'hidden',
+                transition: 'max-height 2s ease'
+              }}
+            >
+              {serviceDropdown && <ServiceDropdown/>}
             </div>
-            <DropdownCountry/>
           </li>
-          <ListItem link="/articles" className="header__link" name="Статьи" />
-          <ListItem link="/reviews" className="header__link" name="Отзывы" />
-          <ListItem link="/contact" className="header__link" name="Контакты" />
+          <li className={styles.toolbar_lists_item}>
+            <span className={styles.toolbar_lists_item_link}>
+              Город
+            </span>
+            {/*Заменила формат изображения с PNG на SVG, поскольку SVG сохраняет своё качество при увеличении.*/}
+            <img className={styles.toolbar_lists_item_link_arrow} src={arrowDown} alt=""/>
+          </li>
+          {/*Что бы сократить код и переиспользовать в будущем создала компонент ListItem*/}
+          <ListItem link="/articles" className={styles.toolbar_lists_item_link} name="Статьи"/>
+          <ListItem link="/reviews" className={styles.toolbar_lists_item_link} name="Отзывы"/>
+          <ListItem link="/contact" className={styles.toolbar_lists_item_link} name="Контакты"/>
         </ul>
         <div className="header__profile">
           {ui.isAuthorized ? (
@@ -62,12 +81,12 @@ const Toolbar = () => {
                 <img className="" src="/img/ellipsewqrew.png" alt=""/>
               </a>
               <Link to={ui.isMaster ? "/master/chat" : "/client/chat"}
-                    className='header__chat-link'
-                    style={{display: 'flex'}}
-                    onClick={() => {
-                      setVisibleCountry(false)
-                      setVisibleSetout(false)
-                    }}
+               className='header__chat-link'
+               style={{display: 'flex'}}
+               onClick={() => {
+                 setVisibleCountry(false)
+                 setVisibleSetout(false)
+               }}
               >
                 <img className="" src="/img/hfjsa.png" alt=""/>
                 {messages.count > 0 && <div className='chat-message-counter'>{messages.count}</div>}
@@ -104,24 +123,25 @@ const Toolbar = () => {
                   </div>
                 </>
               )}
-
             </div>
           ) : (
-            <div className='header__profile'>
-              <Link to="/login" className='login__link__pourhoie'>
-                Вход
-              </Link>
-              <Link to="/register" className='regis__link__pourhoie'>
-                Регистрация
-              </Link>
-            </div>
+            // Вынесла в отдельный компонент кнопки, чтобы сократить код
+            <ToolbarButtons />
           )}
         </div>
       </div>
-      <div className="burger-btn" onClick={() => setMenuActive(!menuActive)}>
-        <span/>
+      <div className={styles.toolbar_burger} onClick={() => setMenuActive(!menuActive)}>
       </div>
-      <Menu active={menuActive} setActive={setMenuActive}/>
+      {/*Вынесла в отдельный компонент кнопки, чтобы сократить код*/}
+      <div className={styles.toolbar_mobile}>
+          <div className={menuActive ?
+            `${styles.toolbar_mobile_menu} ${styles.toolbar_mobile_menu_active}`
+            :
+            `${styles.toolbar_mobile_menu}`
+          }>
+            <MobileMenu/>
+          </div>
+      </div>
     </header>
   );
 };

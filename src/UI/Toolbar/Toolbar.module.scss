@@ -1,1 +1,115 @@
 @use '../../styles/mixins';
+
+.toolbar {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  position: relative;
+
+  &_logo {
+    padding: 10px 0;
+
+    &_img {
+      width: 196px;
+      height: 49px;
+
+      @include mixins.sm {
+        width: 170px;
+        height: 36px;
+      }
+    }
+
+    @include mixins.lg {
+      margin-left: 30px;
+      margin-right: auto;
+    }
+
+    @include mixins.sm {
+      padding: 15px 0;
+      margin-left: 15px;
+    }
+  }
+
+  &_lists {
+    display: flex;
+    align-items: center;
+    gap: 75px;
+    margin-left: 85px;
+    margin-right: auto;
+
+    @include mixins.xl {
+      gap: 30px;
+      margin-left: 40px;
+    }
+
+    @include mixins.lg {
+      display: none;
+    }
+
+    &_item {
+      position: relative;
+
+      &_link {
+        color: white;
+        padding-right: 5px;
+
+        &_arrow {
+          cursor: pointer;
+        }
+
+        &_serviceDropdown {
+          position: absolute;
+          top: 46px;
+          left: 0;
+        }
+      }
+    }
+  }
+
+  &_burger {
+    display: none;
+    background: url("../../img/header/icons/burger-icon.svg") no-repeat right top 8px;
+    cursor: pointer;
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    top: 20px;
+    left: 15px;
+    z-index: 888;
+
+    @include mixins.lg {
+      display: block;
+    }
+  }
+
+  &_mobile {
+    display: none;
+
+    @include mixins.lg {
+      display: block;
+    }
+
+    &_menu {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: -50%;
+      background-color: black;
+      color: white;
+      height: 100vh;
+      width: 50%;
+      transition: all 1s ease;
+      z-index: 887;
+
+      &_active {
+        left: 0;
+      }
+
+      @include mixins.lg {
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+}
+
