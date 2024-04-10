@@ -1,6 +1,8 @@
 @use '../../../../styles/mixins';
 
 .buttons {
+  color: white;
+
   &_login {
     margin-right: 27px;
 

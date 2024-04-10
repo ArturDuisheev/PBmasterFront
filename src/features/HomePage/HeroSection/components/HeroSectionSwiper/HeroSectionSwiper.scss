@@ -51,6 +51,16 @@
       margin: 0 5px;
     }
   }
+
+  .swiper-pagination {
+    &-bullet {
+      background-color: #D9573B;
+    }
+
+    &-bullet-active {
+      background-color: #D9573B;
+    }
+  }
 }
 
 

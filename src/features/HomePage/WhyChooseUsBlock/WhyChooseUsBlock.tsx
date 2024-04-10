@@ -12,6 +12,15 @@ import styles from './WhyChooseUsBlock.module.scss';
 // в компонеты мы создаем для переиспользуемые части кода
 
 const WhyChooseUsBlock = () => {
+
+  // Добавила то, что было в удаленном файле Depature
+  // useEffect(() => {
+  //   Aos.init({
+  //     duration : 1000
+  //   });
+  //   Aos.refresh();
+  // }, []);
+
   return (
     <div className={`${styles.whyChooseUsBlock} appContainer`}>
       <h2 className={styles.whyChooseUsBlock_title}>Почему мы?</h2>
