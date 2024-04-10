@@ -60,6 +60,7 @@ import { getToken } from '../services/token.service';
 import { getUserMode } from '../services/user.service';
 import PersonalRequests from './Orders/PersonalRequests';
 import Articles from './Article/Articles';
+import RegistrationPick from "../features/Users/Registration /RegistrationPick/RegistrationPick";
 
 function App() {
     const __location__ = useLocation()
@@ -129,7 +130,10 @@ function App() {
                         <Route path="contact" element={<MapMaster />} />
                         <Route path="login" element={<Login />} />
                         <Route path="register">
-                            <Route index element={<PickLog />} />
+                            {/*<Route index element={<PickLog />} />*/}
+                            {/*Создала новый элемент RegistrationPick вместо PickLog, */}
+                            {/*что бы вынести в одну логику стили и добавить адаптивность*/}
+                            <Route index element={<RegistrationPick />} />
                             <Route path="master" element={<RegisterMaster />} />
                             <Route path="client" element={<Register />} />
                         </Route>
