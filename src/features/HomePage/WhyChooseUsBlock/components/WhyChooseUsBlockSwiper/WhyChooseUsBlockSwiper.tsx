@@ -9,6 +9,7 @@ import carImage from "../../../../../img/home/whyChooseUsBlock/car.svg";
 import starImage from "../../../../../img/home/whyChooseUsBlock/star.svg";
 import priceLabelImage from "../../../../../img/home/whyChooseUsBlock/price-label.svg";
 import clockImage from "../../../../../img/home/whyChooseUsBlock/clock.svg";
+import './WhyChooseUsBlockSwiper.scss';
 
 const WhyChooseUsBlockSwiper = () => {
   return (
@@ -18,7 +19,7 @@ const WhyChooseUsBlockSwiper = () => {
         }}
         navigation={true}
         modules={[Navigation]}
-        className="mySwiper"
+        className="mySwiper whyChooseUsBlockSwiperSlider"
         style={{
           "--swiper-navigation-size": "20px",
           paddingBottom: "80px"
