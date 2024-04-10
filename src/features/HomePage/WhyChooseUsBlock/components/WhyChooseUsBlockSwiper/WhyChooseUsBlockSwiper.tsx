@@ -12,7 +12,6 @@ import clockImage from "../../../../../img/home/whyChooseUsBlock/clock.svg";
 
 const WhyChooseUsBlockSwiper = () => {
   return (
-    <>
       <Swiper
         pagination={{
           type: 'fraction',
@@ -20,6 +19,10 @@ const WhyChooseUsBlockSwiper = () => {
         navigation={true}
         modules={[Navigation]}
         className="mySwiper"
+        style={{
+          "--swiper-navigation-size": "20px",
+          paddingBottom: "80px"
+        } as any}
       >
         <SwiperSlide>
           <WhyChooseUsBlockCard
@@ -68,7 +71,6 @@ const WhyChooseUsBlockSwiper = () => {
           />
         </SwiperSlide>
       </Swiper>
-    </>
   );
 };
 

@@ -10,16 +10,13 @@
     width: 100%;
   }
 
-  &_img {
-    width: 70px;
-    height: 70px;
-  }
-
   &_content {
     margin-left: 20px;
 
     @include mixins.md {
       margin-left: 0;
+      padding-left: 30px;
+      padding-right: 30px;
     }
 
     &_title {
@@ -35,6 +32,11 @@
     &_text {
       font-size: 16px;
       margin-top: 20px;
+
+      @include mixins.md {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
     }
   }
 }

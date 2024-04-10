@@ -4,6 +4,10 @@
   margin-top: 60px;
   margin-bottom: 180px;
 
+  @include mixins.md {
+    margin-bottom: 50px;
+  }
+
   &_title {
     font-size: 46px;
     text-align: center;
