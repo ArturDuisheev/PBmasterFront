@@ -1,0 +1,56 @@
+@use '../../../../../styles/mixins';
+
+.heroSectionSwiper {
+  &_slide {
+    width: 581px;
+    height: 564px;
+    text-align: center;
+
+    @include mixins.lg {
+      width: 481px;
+      height: 464px;
+    }
+
+    @include mixins.md {
+      width: 381px;
+      height: 364px;
+    }
+
+    @include mixins.sm {
+      width: 281px;
+      height: 264px;
+    }
+
+    &_img {
+      max-width: 100%;
+      height: 100%;
+    }
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    color: #433939;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: gray;
+
+    @include mixins.xl {
+      width: 70px;
+      height: 70px;
+    }
+
+    @include mixins.lg {
+      width: 60px;
+      height: 60px;
+    }
+
+    @include mixins.sm {
+      width: 50px;
+      height: 50px;
+      margin: 0 5px;
+    }
+  }
+}
+
+
