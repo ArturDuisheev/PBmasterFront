@@ -23,7 +23,7 @@ const HeroSection = () => {
           </Link>
         </div>
         <div className={styles.heroSection_block_swiper}>
-          {/*Вынесла в отдельный компонет счетчики, что бы сократить код*/}
+          {/*Вынесла в отдельный компонет swiper, что бы сократить код*/}
           <HeroSectionSwiper/>
         </div>
       </div>
