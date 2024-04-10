@@ -7,8 +7,6 @@ import Toolbar from "../UI/Toolbar/Toolbar";
 import '../scss/swiper.css'
 import '../App.scss'; // Добавила файл, что бы добавить стили для контейнера
 
-import Home from "./Home";
-import PickLog from "./Registration/pick-log";
 import Register from "./Registration/register";
 import RegisterMaster from "./Registration/register-master";
 import Remont from "./remont";
@@ -61,6 +59,7 @@ import { getUserMode } from '../services/user.service';
 import PersonalRequests from './Orders/PersonalRequests';
 import Articles from './Article/Articles';
 import RegistrationPick from "../features/Users/Registration /RegistrationPick/RegistrationPick";
+import HomePage from "../features/HomePage/HomePage";
 
 function App() {
     const __location__ = useLocation()
@@ -121,7 +120,8 @@ function App() {
             <main>
                 <Routes>
                     <Route>
-                        <Route index element={<Home />} />
+                        {/*Заменила на новый элемент HomePage*/}
+                        <Route index element={<HomePage />} />
                         <Route path="devices/:id" element={<Remont />} />
                         <Route path="services/:id" element={<ServiceDetail />} />
                         <Route path="articles/:id" element={<Article />} />
