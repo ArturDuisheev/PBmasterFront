@@ -6,6 +6,10 @@
   &_login {
     margin-right: 27px;
 
+    @include mixins.xl {
+      margin-right: 20px;
+    }
+
     @include mixins.sm {
       margin-right: 10px;
     }

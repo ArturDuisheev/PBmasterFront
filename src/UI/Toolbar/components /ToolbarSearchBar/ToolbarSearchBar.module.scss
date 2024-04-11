@@ -1,0 +1,39 @@
+@use '../../../../styles/mixins';
+
+.toolbarSearchBar {
+  display: flex;
+  border: none;
+  border-radius: 5px 15px 15px 5px;
+  margin-right: 45px;
+
+  @include mixins.xl {
+    margin-right: 20px;
+  }
+
+  &_input {
+    // Выходит ошибка, буду позже разбираться
+
+    //background: white url("../../../../img/header/icons/search.svg") no-repeat left 10px center;
+    padding: 10px 50px 10px 20px;
+    color: white;
+    width: 125px;
+    font-size: 12px;
+    background-color: #6b6b6b;
+    border: none;
+    border-radius: 5px 0 0 5px;
+  }
+
+  &_input::placeholder {
+    color: #fff;
+  }
+
+  &_button {
+    padding: 0 10px;
+    border: none;
+    background: #d9ad3b;
+    font-size: 14px;
+    color: #fff;
+    border-radius: 15px;
+    margin-left: -40px;
+  }
+}

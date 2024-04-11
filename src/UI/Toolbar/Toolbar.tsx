@@ -14,6 +14,7 @@ import ServiceDropdown from "../../components/DropDown/ServiceDropdown/ServiceDr
 import arrowDown from '../../img/header/icons/arrow-down-icon.svg';
 import logo from '../../img/header/new-logo.svg';
 import styles from './Toolbar.module.scss';
+import ToolbarSearchBar from "./components /ToolbarSearchBar/ToolbarSearchBar";
 
 // Исправила и буду исправлять порядок импортов во всем проекте . Лучше импортировать в следующем порядке:
 // 1: импорты React
@@ -38,6 +39,8 @@ const Toolbar = () => {
         <Link to="/" className={styles.toolbar_logo}>
           <img className={styles.toolbar_logo_img} src={logo} alt="Logo"/>
         </Link>
+        {/*Добавила поиск услуг*/}
+          <ToolbarSearchBar />
         <ul className={styles.toolbar_lists}>
           <li className={styles.toolbar_lists_item}>
             <span className={styles.toolbar_lists_item_link}>Услуги</span>
