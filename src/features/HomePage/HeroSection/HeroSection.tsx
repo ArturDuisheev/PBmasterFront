@@ -5,13 +5,17 @@ import HeroSectionCounters from "./components/HeroSectionCounters/HeroSectionCou
 import HeroSectionSearchBar from "./components/HeroSectionSearchBar/HeroSectionSearchBar";
 import styles from './HeroSection.module.scss';
 
-const HeroSection = () => {
+interface Props {
+  title?: string;
+}
+
+const HeroSection: React.FC<Props> = ({title}) => {
   return (
     <div className={styles.heroSection}>
       <div className={`${styles.heroSection_block} appContainer`}>
         <div className={styles.heroSection_block_content}>
           <h1 className={styles.heroSection_block_content_title}>
-            Бизнес площадка по ремонту цифровой техники Apple и других устройств
+            {title ? title : 'Бизнес площадка по ремонту цифровой техники Apple и других устройств'}
           </h1>
           {/*Вынесла в отдельный компонент, что бы сократить код*/}
           <HeroSectionSearchBar/>

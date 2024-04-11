@@ -1,19 +1,20 @@
 import React, { useEffect, useState, useMemo } from "react";
-import { useSelector } from "react-redux";
+import { useSearchParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { useSelector } from "react-redux";
 import { Navigation, Pagination } from "swiper";
+import Popup from "reactjs-popup";
 import { Rating } from "react-simple-star-rating";
-import { getMasterByUsername } from "../../services/user.service";
-import { getMasterRepairs } from "../../services/service.service";
+import SERVER_PATH from "../../constants/SERVER_PATH";
 import { selectUser } from "../../slices/user.slice";
 import { useService } from "../../hooks/useService";
+import { getMasterByUsername } from "../../services/user.service";
+import { getMasterRepairs } from "../../services/service.service";
 import { getCovers, getCounters } from "../../services/index.service";
-import { Link } from "react-router-dom";
 import Map from '../Map'
+import HeroSection from "../../features/HomePage/HeroSection/HeroSection";
 import './master.css'
-import { useSearchParams } from "react-router-dom";
-import Popup from "reactjs-popup";
-import SERVER_PATH from "../../constants/SERVER_PATH";
 
 
 function App() {
@@ -63,53 +64,56 @@ function App() {
 
     return (
         <main>
-            <section className="slider">
-                <div className="container">
-                    <div className="slider__content">
-                        <h2>
-                            Для любой поломки есть мастер техники
-                            Apple
-                        </h2>
-                        <h4>Оригинальные запчасти</h4>
-                        <h4>Разумные цены</h4>
-                        <h4>Выезд</h4>
-                        <div className="home-counters">
-                            <div className="home-counters__top">
-                                <div className="header-counters__dot"></div>
-                                <div className="header-counters__item">
-                                    Количество участников на сайте: {counters.data.masters}
-                                </div>
-                                <div className="header-counters__dot"></div>
-                                <div className="header-counters__item">
-                                    Выполнено заказов на сайте: {counters.data.submissions}
-                                </div>
-                            </div>
-                            <Link
-                                to="/register"
-                                className="home-counters__button"
-                            >
-                                    Стать участником
-                            </Link>
-                        </div>
-                    </div>
-                    <Swiper
-                        navigation={true}
-                        modules={[Navigation, Pagination]}
-                        pagination={true}
-                        className="mySwiper"
-                    >
-                        {covers.data.map((v) => (
-                            <SwiperSlide className='pqw9ueryewqir' key={v.id}>
-                                <img
-                                    className='swiper-slide-asfdfadsXg afewrweq'
-                                    src={SERVER_PATH + v.image}
-                                    alt=""
-                                />
-                            </SwiperSlide>
-                        ))}
-                    </Swiper>
-                </div>
-            </section>
+            {/*<section className="slider">*/}
+                {/*<div className="container">*/}
+                {/*    <div className="slider__content">*/}
+                {/*        <h2>*/}
+                {/*            Для любой поломки есть мастер техники*/}
+                {/*            Apple*/}
+                {/*        </h2>*/}
+                {/*        <h4>Оригинальные запчасти</h4>*/}
+                {/*        <h4>Разумные цены</h4>*/}
+                {/*        <h4>Выезд</h4>*/}
+                {/*        <div className="home-counters">*/}
+                {/*            <div className="home-counters__top">*/}
+                {/*                <div className="header-counters__dot"></div>*/}
+                {/*                <div className="header-counters__item">*/}
+                {/*                    Количество участников на сайте: {counters.data.masters}*/}
+                {/*                </div>*/}
+                {/*                <div className="header-counters__dot"></div>*/}
+                {/*                <div className="header-counters__item">*/}
+                {/*                    Выполнено заказов на сайте: {counters.data.submissions}*/}
+                {/*                </div>*/}
+                {/*            </div>*/}
+                {/*            <Link*/}
+                {/*                to="/register"*/}
+                {/*                className="home-counters__button"*/}
+                {/*            >*/}
+                {/*                    Стать участником*/}
+                {/*            </Link>*/}
+                {/*        </div>*/}
+                {/*    </div>*/}
+                {/*    <Swiper*/}
+                {/*        navigation={true}*/}
+                {/*        modules={[Navigation, Pagination]}*/}
+                {/*        pagination={true}*/}
+                {/*        className="mySwiper"*/}
+                {/*    >*/}
+                {/*        {covers.data.map((v) => (*/}
+                {/*            <SwiperSlide className='pqw9ueryewqir' key={v.id}>*/}
+                {/*                <img*/}
+                {/*                    className='swiper-slide-asfdfadsXg afewrweq'*/}
+                {/*                    src={SERVER_PATH + v.image}*/}
+                {/*                    alt=""*/}
+                {/*                />*/}
+                {/*            </SwiperSlide>*/}
+                {/*        ))}*/}
+                {/*    </Swiper>*/}
+                {/*</div>*/}
+            {/*</section>*/}
+            {/*Закомментировала вверхний код, т.к. можно переиспользовать HeroSection,
+            таким образом сократили код*/}
+            <HeroSection title="Для любой поломки есть мастер техники Apple" />
             <section className="master__map">
                 <h1 className="master__map__title">Карта наших мастеров </h1>
                 <Map
