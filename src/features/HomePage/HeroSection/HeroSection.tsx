@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from "react-router-dom";
 import HeroSectionSwiper from "./components/HeroSectionSwiper/HeroSectionSwiper";
 import HeroSectionCounters from "./components/HeroSectionCounters/HeroSectionCounters";
-import HeroSectionSearchForm from "./components/HeroSectionSearchForm/HeroSectionSearchForm";
+import HeroSectionSearchBar from "./components/HeroSectionSearchBar/HeroSectionSearchBar";
 import styles from './HeroSection.module.scss';
 
 const HeroSection = () => {
@@ -13,8 +13,8 @@ const HeroSection = () => {
           <h1 className={styles.heroSection_block_content_title}>
             Бизнес площадка по ремонту цифровой техники Apple и других устройств
           </h1>
-          {/*Вынесла в отдельный компонет форму, что бы сократить код*/}
-          <HeroSectionSearchForm/>
+          {/*Вынесла в отдельный компонент, что бы сократить код*/}
+          <HeroSectionSearchBar/>
           <h4 className={styles.heroSection_block_content_subtitle}>Оригинальные запчасти</h4>
           <h4 className={styles.heroSection_block_content_subtitle}>Разумные цены</h4>
           <h4 className={styles.heroSection_block_content_subtitle}>Выезд</h4>

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import styles from './HeroSectionSearchForm.module.scss';
+import styles from './HeroSectionSearchBar.module.scss';
 
-const HeroSectionSearchForm = () => {
+const HeroSectionSearchBar = () => {
   const [service, setService] = useState<string>('');
 
   const submitFormHandler = async (e: React.FormEvent) => {
@@ -31,4 +31,4 @@ const HeroSectionSearchForm = () => {
   );
 };
 
-export default HeroSectionSearchForm;
+export default HeroSectionSearchBar;
