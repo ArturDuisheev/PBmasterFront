@@ -20,7 +20,7 @@ const HeroSectionSwiper = () => {
         pagination={true}
         className="mySwiper heroSectionSwiper"
         style={{
-          "--swiper-navigation-size": "30px",
+          "--swiper-navigation-size": "20px",
         } as any}
       >
         {/*На данный момент сервер не работает, поэтому закомментировала данные из сервера*/}
