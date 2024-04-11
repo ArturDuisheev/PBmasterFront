@@ -29,32 +29,35 @@
 
   .swiper-button-prev,
   .swiper-button-next {
-    color: #433939;
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background-color: gray;
+    color: #FFFFFF;
 
-    @include mixins.xl {
-      width: 70px;
-      height: 70px;
-    }
+    // можно раскомментировать, если нужны кружочки в свайпер кнопках
 
-    @include mixins.lg {
-      width: 60px;
-      height: 60px;
-    }
+    //width: 80px;
+    //height: 80px;
+    //border-radius: 50%;
+    //background-color: gray;
 
-    @include mixins.sm {
-      width: 50px;
-      height: 50px;
-      margin: 0 5px;
-    }
+    //@include mixins.xl {
+    //  width: 70px;
+    //  height: 70px;
+    //}
+    //
+    //@include mixins.lg {
+    //  width: 60px;
+    //  height: 60px;
+    //}
+    //
+    //@include mixins.sm {
+    //  width: 50px;
+    //  height: 50px;
+    //  margin: 0 5px;
+    //}
   }
 
   .swiper-pagination {
     &-bullet {
-      background-color: #D9573B;
+      background-color: #D9D9D9;
     }
 
     &-bullet-active {

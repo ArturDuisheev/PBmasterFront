@@ -1,11 +1,11 @@
 @use '../../../../styles/mixins';
 
 .registrationPick {
-  margin-top: 200px;
+  margin-top: 150px;
   margin-bottom: 100px;
 
   @include mixins.md {
-    margin-top: 140px;
+    margin-top: 120px;
     margin-bottom: 30px;
   }
 
