@@ -5,9 +5,9 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import WhyChooseUsBlockCard from "../WhyChooseUsBlockCard/WhyChooseUsBlockCard";
-import carImage from "../../../../../img/home/whyChooseUsBlock/car.svg";
-import starImage from "../../../../../img/home/whyChooseUsBlock/star.svg";
-import priceLabelImage from "../../../../../img/home/whyChooseUsBlock/price-label.svg";
+import mastersImage from '../../../../../img/home/whyChooseUsBlock/masters.svg';
+import qualityImage from '../../../../../img/home/whyChooseUsBlock/quality.svg';
+import priceImage from '../../../../../img/home/whyChooseUsBlock/price.svg';
 import clockImage from "../../../../../img/home/whyChooseUsBlock/clock.svg";
 import './WhyChooseUsBlockSwiper.scss';
 
@@ -25,9 +25,9 @@ const WhyChooseUsBlockSwiper = () => {
           paddingBottom: "80px"
         } as any}
       >
-        <SwiperSlide>
+        <SwiperSlide className="whyChooseUsBlockSwiperSlider_item">
           <WhyChooseUsBlockCard
-            img={carImage}
+            img={mastersImage}
             title="Выезд"
             text="
             Время - деньги. Заказав переклейку или ремонт iphone у нас
@@ -37,9 +37,9 @@ const WhyChooseUsBlockSwiper = () => {
           "
           />
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide className="whyChooseUsBlockSwiperSlider_item">
           <WhyChooseUsBlockCard
-            img={starImage}
+            img={qualityImage}
             title="Качество"
             text="
             Наши мастера имеют 10+ лет опыта работы в области переклейки
@@ -48,9 +48,9 @@ const WhyChooseUsBlockSwiper = () => {
           "
           />
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide className="whyChooseUsBlockSwiperSlider_item">
           <WhyChooseUsBlockCard
-            img={priceLabelImage}
+            img={priceImage}
             title="Цены"
             text="
             Наши цены ниже среднерыночных, несмотря на то, что качество работы яна самом высшем
@@ -60,7 +60,7 @@ const WhyChooseUsBlockSwiper = () => {
           "
           />
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide className="whyChooseUsBlockSwiperSlider_item">
           <WhyChooseUsBlockCard
             img={clockImage}
             title="Сроки работы"

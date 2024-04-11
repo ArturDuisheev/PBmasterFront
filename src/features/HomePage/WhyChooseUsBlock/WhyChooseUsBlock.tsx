@@ -1,9 +1,9 @@
 import React from 'react';
 import WhyChooseUsBlockCard from "./components/WhyChooseUsBlockCard/WhyChooseUsBlockCard";
 import WhyChooseUsBlockSwiper from "./components/WhyChooseUsBlockSwiper/WhyChooseUsBlockSwiper";
-import carImage from '../../../img/home/whyChooseUsBlock/car.svg';
-import starImage from '../../../img/home/whyChooseUsBlock/star.svg';
-import priceLabelImage from '../../../img/home/whyChooseUsBlock/price-label.svg';
+import mastersImage from '../../../img/home/whyChooseUsBlock/masters.svg';
+import qualityImage from '../../../img/home/whyChooseUsBlock/quality.svg';
+import priceImage from '../../../img/home/whyChooseUsBlock/price.svg';
 import clockImage from '../../../img/home/whyChooseUsBlock/clock.svg';
 import styles from './WhyChooseUsBlock.module.scss';
 
@@ -23,54 +23,50 @@ const WhyChooseUsBlock = () => {
 
   return (
     <div className={`${styles.whyChooseUsBlock} appContainer`}>
-      <h2 className={styles.whyChooseUsBlock_title}>Почему мы?</h2>
-      <div className={styles.whyChooseUsBlock_cards}>
-        {/*Вынесла в отдельный компонент что бы сократить код и переиспользовать карточки в свайпере мобильной версии*/}
-        <WhyChooseUsBlockCard
-          img={carImage}
-          title="Выезд"
-          text="
-            Время - деньги. Заказав переклейку или ремонт iphone у нас
-            Вы можете сэкономить 3-4 часа времени. Мастер приедет
-            и произведет ремонт у вас дома или в офисе или заберет
-            у вас телефон, потом доставит отремонтированный.
-          "
-        />
+      <h2 className={styles.whyChooseUsBlock_title}>Почему <span>Repair</span><span>Wizards</span>,
+        а не другие сайты с мастерами?
+      </h2>
+        <div className={styles.whyChooseUsBlock_cards}>
+          {/*Вынесла в отдельный компонент что бы сократить код и переиспользовать карточки в свайпере мобильной версии*/}
+          <WhyChooseUsBlockCard
+            img={mastersImage}
+            title="Лучшие специалисты"
+            text="
+              Найдите надежных профессионалов, изучив их портфолио и ознакомившись с отзывами,
+              размещенными в их профилях.
+            "
+          />
 
-        <WhyChooseUsBlockCard
-          img={starImage}
-          title="Качество"
-          text="
-            Наши мастера имеют 10+ лет опыта работы в области переклейки
-            и ремонта Iphone. Работая с нами, Вы можете быть совершенно уверены в том, что ваш
-            телефон в надежных и опытных руках.
-          "
-        />
+          <WhyChooseUsBlockCard
+            img={qualityImage}
+            title="Качество"
+            text="
+              Наши мастера имеют 10+ лет опыта работы в области ремонта.
+              Вы можете быть совершенно уверены, что ваше устройство в надежных руках.
+            "
+          />
 
-        <WhyChooseUsBlockCard
-          img={priceLabelImage}
-          title="Цены"
-          text="
-            Наши цены ниже среднерыночных, несмотря на то, что качество работы яна самом высшем
-            уровне. Несмотря на то, что мы используем только оригинальные зап. части. Мы любим
-            свою работу, работаем много и это позволяет предлагать лучшие
-            на рынке условия.
-          "
-        />
+          <WhyChooseUsBlockCard
+            img={priceImage}
+            title="Цены"
+            text="
+              Наши цены ниже среднерыночных, несмотря на то, что качество работы
+              на самом высшем уровне и используются только оригинальные зап. части.
+            "
+          />
 
-        <WhyChooseUsBlockCard
-          img={clockImage}
-          title="Сроки работы"
-          text="
-            Мы пунктуальны и ответственны. Называем срок работы с запасом
-            и выполняем работу почти всегда раньше обещанного срока,
-            а ровно в срок сдаем тогда, когда происходят непредвиденные обстоятельства.
-          "
-        />
-      </div>
+          <WhyChooseUsBlockCard
+            img={clockImage}
+            title="Сроки работы"
+            text="
+              Все мастера пунктуальны и ответственны. Называют срок работы с запасом
+              и выполняют работу почти всегда раньше обещанного срока.
+           "
+          />
+        </div>
       {/*Вынесла свайпер в отдельный компонет что бы сократить код*/}
       <div className={styles.whyChooseUsBlock_swiper}>
-        <WhyChooseUsBlockSwiper />
+        <WhyChooseUsBlockSwiper/>
       </div>
     </div>
   );

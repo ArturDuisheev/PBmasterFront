@@ -13,7 +13,9 @@ const WhyChooseUsBlockCard: React.FC<Props> = ({img,title, text}) => {
       <div>
         {/*Добавила инлайновые стили на картинку т.к. в точках расширении экрана 761px - 762px */}
         {/*менялся размер картинки несмотря на scss стили*/}
-        <img style={{width: "70px", height: "70px"}} src={img} alt=""/>
+        <div className={styles.whyChooseUsBlockCard_img}>
+          <img style={{width: "70px", height: "70px"}} src={img} alt=""/>
+        </div>
       </div>
       <div className={styles.whyChooseUsBlockCard_content}>
         <h4 className={styles.whyChooseUsBlockCard_content_title}>{title}</h4>
