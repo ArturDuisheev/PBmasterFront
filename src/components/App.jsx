@@ -58,7 +58,7 @@ import { getToken } from '../services/token.service';
 import { getUserMode } from '../services/user.service';
 import PersonalRequests from './Orders/PersonalRequests';
 import Articles from './Article/Articles';
-import RegistrationPick from "../features/Users/Registration /RegistrationPick/RegistrationPick";
+import RegistrationPickPage from "../features/RegistrationPage/RegistrationPickPage/RegistrationPickPage";
 import HomePage from "../features/HomePage/HomePage";
 
 function App() {
@@ -131,9 +131,9 @@ function App() {
                         <Route path="login" element={<Login />} />
                         <Route path="register">
                             {/*<Route index element={<PickLog />} />*/}
-                            {/*Создала новый элемент RegistrationPick вместо PickLog, */}
+                            {/*Создала новый элемент RegistrationPickPage вместо PickLog, */}
                             {/*что бы вынести в одну логику стили и добавить адаптивность*/}
-                            <Route index element={<RegistrationPick />} />
+                            <Route index element={<RegistrationPickPage />} />
                             <Route path="master" element={<RegisterMaster />} />
                             <Route path="client" element={<Register />} />
                         </Route>

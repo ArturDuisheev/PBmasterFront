@@ -5,8 +5,8 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import RegistrationPickCard from "../RegistrationPickCard/RegistrationPickCard";
-import registrationDefaultUserImg from "../../../../../../img/users/registrationPick/registration-user.svg";
-import registrationDefaultMasterImg from "../../../../../../img/users/registrationPick/registration-master.svg";
+import registrationDefaultUserImg from "../../../../../img/users/registrationPick/registration-user.svg";
+import registrationDefaultMasterImg from "../../../../../img/users/registrationPick/registration-master.svg";
 import './RegistrationPickSwiper.scss';
 
 const RegistrationPickSwiper = () => {
