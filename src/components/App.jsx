@@ -60,6 +60,7 @@ import PersonalRequests from './Orders/PersonalRequests';
 import Articles from './Article/Articles';
 import RegistrationPickPage from "../features/RegistrationPage/RegistrationPickPage/RegistrationPickPage";
 import HomePage from "../features/HomePage/HomePage";
+import RegistrationUserPage from "../features/RegistrationPage/RegistrationUserPage/RegistrationUserPage";
 
 function App() {
     const __location__ = useLocation()
@@ -135,7 +136,8 @@ function App() {
                             {/*что бы вынести в одну логику стили и добавить адаптивность*/}
                             <Route index element={<RegistrationPickPage />} />
                             <Route path="master" element={<RegisterMaster />} />
-                            <Route path="client" element={<Register />} />
+                            {/*<Route path="client" element={<Register />} />*/}
+                            <Route path="client" element={<RegistrationUserPage />} />
                         </Route>
                     </Route>
                     <Route path="client" element={<ClientRoute />}>
