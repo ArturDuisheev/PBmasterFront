@@ -7,7 +7,6 @@ import Toolbar from "../UI/Toolbar/Toolbar";
 import '../scss/swiper.css'
 import '../App.scss'; // Добавила файл, что бы добавить стили для контейнера
 
-import Register from "./Registration/register";
 import RegisterMaster from "./Registration/register-master";
 import Remont from "./remont";
 import { ServiceDetail } from "./Service";
