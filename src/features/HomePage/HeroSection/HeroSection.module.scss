@@ -29,6 +29,10 @@
        font-size: 50px;
        padding-bottom: 26px;
 
+       @include mixins.lg {
+         max-width: 800px;
+       }
+
        @include mixins.sm {
          font-size: 30px;
        }
