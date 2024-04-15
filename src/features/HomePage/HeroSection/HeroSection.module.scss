@@ -56,7 +56,12 @@
        margin-top: 30px;
        border-radius: 20px;
        font-size: 14px;
-       background: #D9573B;
+       background-color: #D9573B;
+       transition: background-color 0.3s ease;
+
+       &:hover {
+         background-color: #d9ad3b;
+       }
      }
    }
 

@@ -29,10 +29,15 @@ $arrowSearchIconPath: '/img/header/icons/search.svg';
   &_button {
     padding: 0 10px;
     border: none;
-    background: #d9ad3b;
+    background-color: #d9ad3b;
     font-size: 14px;
     color: #fff;
     border-radius: 15px;
     margin-left: -40px;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #D9573B;
+    }
   }
 }
