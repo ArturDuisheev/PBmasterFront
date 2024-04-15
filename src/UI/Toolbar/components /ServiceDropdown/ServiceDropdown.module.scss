@@ -1,3 +1,5 @@
+@use '../../../../styles/mixins';
+
 $arrowRightIconPath: '/img/header/icons/arrow-right-icon.svg';
 
 .serviceDropdown {
@@ -5,6 +7,11 @@ $arrowRightIconPath: '/img/header/icons/arrow-right-icon.svg';
   top: 0;
   left: 0;
   width: 270px;
+
+  @media screen and (max-width: 1080px) {
+    left: -50px !important;
+    width: fit-content !important;
+  }
 
   ul {
     margin: 0 !important;
@@ -15,6 +22,16 @@ $arrowRightIconPath: '/img/header/icons/arrow-right-icon.svg';
     color: white !important;
     font-size: 16px !important;
     border-width: 0 !important;
+
+    @media screen and (max-width: 1080px) {
+      padding: 0 !important;
+      font-size: 24px !important;
+      transition: all 0.4s ease !important;
+
+      &:hover {
+        scale: 1.05 !important;
+      }
+    }
   }
 
   &_button:focus {
