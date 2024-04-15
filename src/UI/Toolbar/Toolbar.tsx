@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import {useSelector} from "react-redux";
 import {Link} from "react-router-dom";
+import Dropdown from "react-multilevel-dropdown";
 import SERVER_PATH from "../../constants/SERVER_PATH";
-import {List} from "rsuite";
 import {selectUI} from "../../slices/ui.slice";
 import {selectUser} from "../../slices/user.slice";
 import {selectUnreadMessages} from "../../slices/messages.slice";
@@ -10,11 +10,10 @@ import DropdownSetout from "../../components/dropdownSetout";
 import ListItem from "../../components/ListItem/ListItem";
 import ToolbarButtons from "./components /ToolbarButtons/ToolbarButtons";
 import MobileMenu from "./MobileMenu";
-import ServiceDropdown from "../../components/DropDown/ServiceDropdown/ServiceDropdown";
 import arrowDown from '../../img/header/icons/arrow-down-icon.svg';
+import ToolbarSearchBar from "./components /ToolbarSearchBar/ToolbarSearchBar";
 import logo from '../../img/header/new-logo.svg';
 import styles from './Toolbar.module.scss';
-import ToolbarSearchBar from "./components /ToolbarSearchBar/ToolbarSearchBar";
 
 // Исправила и буду исправлять порядок импортов во всем проекте . Лучше импортировать в следующем порядке:
 // 1: импорты React
@@ -31,6 +30,9 @@ const Toolbar = () => {
   const ui = useSelector(selectUI);
   const user = useSelector(selectUser);
   const messages = useSelector(selectUnreadMessages);
+
+  const menu: string[] = ['Ремонт телефонов', 'Ремонт планшетов', 'Ремонт ноутбуков', 'Ремонт компьютеров', 'Ремонт часов', 'Аксессуары'];
+  const submenuData: string[] = ['Ремонт iPhone', 'Ремонт iPad', 'Ремонт MacBook'];
 
   return (
     <header>
@@ -51,18 +53,21 @@ const Toolbar = () => {
               style={{ transform: serviceDropdown ? 'rotate(-90deg)' : 'rotate(0deg)', transition: 'transform 1s ease' }}
               onClick={() => setServiceDropdown(!serviceDropdown)}
             />
-            {/*Вынесла в отдельный компонент dropdown для услуг что бы сократить код и добавила стили для плавного появления списка*/}
-            <div
-              className={`${styles.toolbar_lists_item_link_serviceDropdown} ${serviceDropdown ? styles.dropdownOpen : ''}`}
-              style={{
-                maxHeight: serviceDropdown ? '500px' : '0',
-                overflowY: serviceDropdown ? 'auto' : 'hidden',
-                overflowX: 'hidden',
-                transition: 'max-height 2s ease'
-              }}
-            >
-              {serviceDropdown && <ServiceDropdown/>}
-            </div>
+            {/*Переделала dropdown для услуг*/}
+              {serviceDropdown && <div className={styles.toolbar_dropdownService}>
+                {menu.map((menu, index) => (
+                  <Dropdown.Item className={styles.toolbar_dropdownService_item} key={index}>
+                    {menu}
+                    <Dropdown.Submenu position="right">
+                      {submenuData.map((submenu, index) => (
+                        <Dropdown.Item className={styles.toolbar_dropdownService_item} key={index}>
+                          {submenu}
+                        </Dropdown.Item>
+                      ))}
+                    </Dropdown.Submenu>
+                  </Dropdown.Item>
+                ))}
+              </div>}
           </li>
           <li className={styles.toolbar_lists_item}>
             <span className={styles.toolbar_lists_item_link}>

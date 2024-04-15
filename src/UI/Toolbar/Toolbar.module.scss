@@ -64,6 +64,32 @@
     }
   }
 
+  &_dropdownService {
+    position: absolute;
+    top: 45px;
+    left: 0;
+    background-color: #131313;
+    width: 270px;
+    padding-bottom: 5px;
+
+    &_item {
+      padding: 15px 20px;
+      background-color: #131313 !important;
+      color: white !important;
+      border-bottom: 1px solid #515151;
+      width: 270px;
+      font-size: 16px !important;
+
+      &:hover {
+        border-bottom: 1px solid white;
+      }
+
+      ul {
+        margin: 0 !important;
+      }
+    }
+  }
+
   &_burger {
     display: none;
     background: url("../../img/header/icons/burger-icon.svg") no-repeat right top 8px;
