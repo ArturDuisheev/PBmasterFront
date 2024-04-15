@@ -11,6 +11,7 @@ import ListItem from "../../components/ListItem/ListItem";
 import ToolbarButtons from "./components /ToolbarButtons/ToolbarButtons";
 import MobileMenu from "./MobileMenu";
 import arrowDown from '../../img/header/icons/arrow-down-icon.svg';
+import arrowRight from '../../img/header/icons/arrow-right-icon.svg';
 import ToolbarSearchBar from "./components /ToolbarSearchBar/ToolbarSearchBar";
 import logo from '../../img/header/new-logo.svg';
 import styles from './Toolbar.module.scss';
@@ -57,11 +58,11 @@ const Toolbar = () => {
               {serviceDropdown && <div className={styles.toolbar_dropdownService}>
                 {menu.map((menu, index) => (
                   <Dropdown.Item className={styles.toolbar_dropdownService_item} key={index}>
-                    {menu}
+                    <span className={styles.toolbar_dropdownService_item_menu}>{menu}</span>
                     <Dropdown.Submenu position="right">
                       {submenuData.map((submenu, index) => (
                         <Dropdown.Item className={styles.toolbar_dropdownService_item} key={index}>
-                          {submenu}
+                          <span>{submenu}</span>
                         </Dropdown.Item>
                       ))}
                     </Dropdown.Submenu>
