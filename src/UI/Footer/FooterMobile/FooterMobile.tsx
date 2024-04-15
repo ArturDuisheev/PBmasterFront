@@ -9,13 +9,15 @@ const FooterMobile = () => {
       <FooterInfo/>
 
       <div className={styles.mobileFooter_mainBlock}>
-        <div className={styles.mobileFooter_mainBlock_services}>
-          <ul>
-            <ListItem link="/" name="Ремонт iPhone"/>
-            <ListItem link="/" name="Ремонт iPad"/>
-            <ListItem link="/" name="Ремонт MacBook"/>
-          </ul>
-        </div>
+        {/*Заказчик попросил убрать*/}
+
+        {/*<div className={styles.mobileFooter_mainBlock_services}>*/}
+        {/*  <ul>*/}
+        {/*    <ListItem link="/" name="Ремонт iPhone"/>*/}
+        {/*    <ListItem link="/" name="Ремонт iPad"/>*/}
+        {/*    <ListItem link="/" name="Ремонт MacBook"/>*/}
+        {/*  </ul>*/}
+        {/*</div>*/}
 
         <div className={styles.mobileFooter_mainBlock_corpInfo}>
           <ul>

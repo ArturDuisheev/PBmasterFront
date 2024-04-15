@@ -24,11 +24,13 @@ function App() {
           {/*  </ul>*/}
           {/*</div>*/}
 
-          <ul>
-            <ListItem link="/" name="Ремонт iPhone"/>
-            <ListItem link="/" name="Ремонт iPad"/>
-            <ListItem link="/" name="Ремонт MacBook"/>
-          </ul>
+          {/*Заказчик попросил убрать*/}
+
+          {/*<ul>*/}
+          {/*  <ListItem link="/" name="Ремонт iPhone"/>*/}
+          {/*  <ListItem link="/" name="Ремонт iPad"/>*/}
+          {/*  <ListItem link="/" name="Ремонт MacBook"/>*/}
+          {/*</ul>*/}
 
           <ul>
             <ListItem link="/" name="Новости"/>
