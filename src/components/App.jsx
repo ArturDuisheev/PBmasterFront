@@ -60,6 +60,7 @@ import Articles from './Article/Articles';
 import RegistrationPickPage from "../features/RegistrationPage/RegistrationPickPage/RegistrationPickPage";
 import HomePage from "../features/HomePage/HomePage";
 import RegistrationUserPage from "../features/RegistrationPage/RegistrationUserPage/RegistrationUserPage";
+import RegistrationMasterPage from "../features/RegistrationPage/RegistrationMasterPage/RegistrationMasterPage";
 
 function App() {
     const __location__ = useLocation()
@@ -131,11 +132,12 @@ function App() {
                         <Route path="login" element={<Login />} />
                         <Route path="register">
                             {/*<Route index element={<PickLog />} />*/}
-                            {/*Создала новый элемент RegistrationPickPage вместо PickLog, */}
+                            {/*Создала новый элемент RegistrationPickPage вместо PickLog */}
                             {/*что бы вынести в одну логику стили и добавить адаптивность*/}
                             <Route index element={<RegistrationPickPage />} />
                             <Route path="master" element={<RegisterMaster />} />
                             {/*<Route path="client" element={<Register />} />*/}
+                            {/*Создала новую страницу RegistrationUserPage вместо Register */}
                             <Route path="client" element={<RegistrationUserPage />} />
                         </Route>
                     </Route>
