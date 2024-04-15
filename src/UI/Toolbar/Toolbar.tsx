@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import {useSelector} from "react-redux";
 import {Link} from "react-router-dom";
-import Dropdown from "react-multilevel-dropdown";
 import SERVER_PATH from "../../constants/SERVER_PATH";
 import {selectUI} from "../../slices/ui.slice";
 import {selectUser} from "../../slices/user.slice";
@@ -10,10 +9,10 @@ import DropdownSetout from "../../components/dropdownSetout";
 import ListItem from "../../components/ListItem/ListItem";
 import ToolbarButtons from "./components /ToolbarButtons/ToolbarButtons";
 import MobileMenu from "./MobileMenu";
-import arrowDown from '../../img/header/icons/arrow-down-icon.svg';
-import arrowRight from '../../img/header/icons/arrow-right-icon.svg';
 import ToolbarSearchBar from "./components /ToolbarSearchBar/ToolbarSearchBar";
+import ServiceDropdown from "./components /ServiceDropdown/ServiceDropdown";
 import logo from '../../img/header/new-logo.svg';
+import arrowDown from '../../img/header/icons/arrow-down-icon.svg';
 import styles from './Toolbar.module.scss';
 
 // Исправила и буду исправлять порядок импортов во всем проекте . Лучше импортировать в следующем порядке:
@@ -26,14 +25,10 @@ const Toolbar = () => {
   const [visibleCountry, setVisibleCountry] = useState<boolean>(false);
   const [visibleSetout, setVisibleSetout] = useState<boolean>(false);
   const [menuActive, setMenuActive] = useState<boolean>(false);
-  const [serviceDropdown, setServiceDropdown] = useState<boolean>(false);
 
   const ui = useSelector(selectUI);
   const user = useSelector(selectUser);
   const messages = useSelector(selectUnreadMessages);
-
-  const menu: string[] = ['Ремонт телефонов', 'Ремонт планшетов', 'Ремонт ноутбуков', 'Ремонт компьютеров', 'Ремонт часов', 'Аксессуары'];
-  const submenuData: string[] = ['Ремонт iPhone', 'Ремонт iPad', 'Ремонт MacBook'];
 
   return (
     <header>
@@ -45,31 +40,10 @@ const Toolbar = () => {
         {/*Добавила поиск услуг*/}
           <ToolbarSearchBar />
         <ul className={styles.toolbar_lists}>
-          <li className={styles.toolbar_lists_item}>
-            <span className={styles.toolbar_lists_item_link}>Услуги</span>
-            <img
-              className={styles.toolbar_lists_item_link_arrow}
-              src={arrowDown}
-              alt=""
-              style={{ transform: serviceDropdown ? 'rotate(-90deg)' : 'rotate(0deg)', transition: 'transform 1s ease' }}
-              onClick={() => setServiceDropdown(!serviceDropdown)}
-            />
-            {/*Переделала dropdown для услуг*/}
-              {serviceDropdown && <div className={styles.toolbar_dropdownService}>
-                {menu.map((menu, index) => (
-                  <Dropdown.Item className={styles.toolbar_dropdownService_item} key={index}>
-                    <span className={styles.toolbar_dropdownService_item_menu}>{menu}</span>
-                    <Dropdown.Submenu position="right">
-                      {submenuData.map((submenu, index) => (
-                        <Dropdown.Item className={styles.toolbar_dropdownService_item} key={index}>
-                          <span>{submenu}</span>
-                        </Dropdown.Item>
-                      ))}
-                    </Dropdown.Submenu>
-                  </Dropdown.Item>
-                ))}
-              </div>}
-          </li>
+           <li className={styles.toolbar_lists_item}>
+             {/*Вынесла в отдельный компонент, что бы лучше ориентироваться по коду*/}
+             <ServiceDropdown />
+           </li>
           <li className={styles.toolbar_lists_item}>
             <span className={styles.toolbar_lists_item_link}>
               Город
@@ -90,12 +64,12 @@ const Toolbar = () => {
                 <img className="" src="/img/ellipsewqrew.png" alt=""/>
               </a>
               <Link to={ui.isMaster ? "/master/chat" : "/client/chat"}
-               className='header__chat-link'
-               style={{display: 'flex'}}
-               onClick={() => {
-                 setVisibleCountry(false)
-                 setVisibleSetout(false)
-               }}
+                    className='header__chat-link'
+                    style={{display: 'flex'}}
+                    onClick={() => {
+                      setVisibleCountry(false)
+                      setVisibleSetout(false)
+                    }}
               >
                 <img className="" src="/img/hfjsa.png" alt=""/>
                 {messages.count > 0 && <div className='chat-message-counter'>{messages.count}</div>}
