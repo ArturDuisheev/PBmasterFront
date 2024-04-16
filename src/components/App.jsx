@@ -7,6 +7,7 @@ import Toolbar from "../UI/Toolbar/Toolbar";
 import '../scss/swiper.css'
 import '../App.scss'; // Добавила файл, что бы добавить стили для контейнера
 
+// import RegisterMaster from "./Registration/register-master";
 import Remont from "./remont";
 import { ServiceDetail } from "./Service";
 import ChoiceOfReplenishmentMethod from "./ChoiceOfReplenishmentMethod/ChoiceOfReplenishmentMethod";
@@ -60,6 +61,7 @@ import RegistrationPickPage from "../features/RegistrationPage/RegistrationPickP
 import HomePage from "../features/HomePage/HomePage";
 import RegistrationUserPage from "../features/RegistrationPage/RegistrationUserPage/RegistrationUserPage";
 import RegistrationMasterPage from "../features/RegistrationPage/RegistrationMasterPage/RegistrationMasterPage";
+import NotFoundPage from "../features/NotFoundPage/NotFoundPage";
 
 function App() {
     const __location__ = useLocation()
@@ -135,7 +137,7 @@ function App() {
                             {/*что бы вынести в одну логику стили и добавить адаптивность*/}
                             <Route index element={<RegistrationPickPage />} />
                             {/*<Route path="master" element={<RegisterMaster />} />*/}
-                            {/*Создала новую страницу RegistrationMasterPage вместо RegisterMaster */}
+                            {/*Создала новую страницу RegistrationMasterPage вместо RegisterMaster*/}
                             <Route path="master" element={<RegistrationMasterPage />} />
                             {/*<Route path="client" element={<Register />} />*/}
                             {/*Создала новую страницу RegistrationUserPage вместо Register */}
@@ -185,6 +187,7 @@ function App() {
                         </Route>
                         <Route path="offers/create/:id" element={<OfferAService />} />
                     </Route>
+                    <Route path="*" element={<NotFoundPage />} />
                 </Routes>
             </main>
             {__location__.pathname.includes("/chat") || <Footer /> }
