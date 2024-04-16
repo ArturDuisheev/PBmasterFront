@@ -7,7 +7,6 @@ import Toolbar from "../UI/Toolbar/Toolbar";
 import '../scss/swiper.css'
 import '../App.scss'; // Добавила файл, что бы добавить стили для контейнера
 
-import RegisterMaster from "./Registration/register-master";
 import Remont from "./remont";
 import { ServiceDetail } from "./Service";
 import ChoiceOfReplenishmentMethod from "./ChoiceOfReplenishmentMethod/ChoiceOfReplenishmentMethod";
@@ -135,7 +134,9 @@ function App() {
                             {/*Создала новый элемент RegistrationPickPage вместо PickLog */}
                             {/*что бы вынести в одну логику стили и добавить адаптивность*/}
                             <Route index element={<RegistrationPickPage />} />
-                            <Route path="master" element={<RegisterMaster />} />
+                            {/*<Route path="master" element={<RegisterMaster />} />*/}
+                            {/*Создала новую страницу RegistrationMasterPage вместо RegisterMaster */}
+                            <Route path="master" element={<RegistrationMasterPage />} />
                             {/*<Route path="client" element={<Register />} />*/}
                             {/*Создала новую страницу RegistrationUserPage вместо Register */}
                             <Route path="client" element={<RegistrationUserPage />} />
