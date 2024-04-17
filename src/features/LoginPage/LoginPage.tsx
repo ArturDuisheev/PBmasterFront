@@ -11,6 +11,7 @@ import {
 import {login} from "../../services/auth.service";
 import {fetchUser} from "../../slices/user.slice";
 import styles from './LoginPage.module.scss';
+import Error from "../../components/Error/Error";
 
 const RecoveryState = {
   IDLE: 0,
@@ -107,9 +108,8 @@ const LoginPage = () => {
       <form className={styles.loginPage_form} onSubmit={onSubmit}>
         {error && (
           // В старом коде className="auth-err"
-          <div className={styles.loginPage_form_error}>
-            {error}
-          </div>
+          // Вынесла в отдельный компонент, т.к. переиспользуется
+          <Error error={error} />
         )}
         <input
           className={styles.loginPage_form_input}

@@ -3,6 +3,7 @@ import {useNavigate} from "react-router-dom";
 import {registerAsClient} from "../../../services/auth.service";
 import ConfirmPolitics from "../../../components/ConfirmPolitics/ConfirmPolitics";
 import {ConfirmPoliticsContext} from "../../../components/ConfirmPolitics/ConfirmPoliticsContext";
+// import Error from "../../../components/Error/Error";
 import styles from './RegistrationUserPage.module.scss';
 
 const RegistrationUserPage = () => {
@@ -46,12 +47,10 @@ const RegistrationUserPage = () => {
       <div className={`${styles.registrationUserPage} appContainer`}>
         <h1 className={styles.registrationUserPage_title}>Регистрация</h1>
          <form className={styles.registrationUserPage_form} onSubmit={onSubmit}>
-           {error && (
-           // В старом коде className="auth-err"
-           <div className={styles.registrationUserPage_form_error}>
-             {error}
-           </div>
-           )}
+           {/*{error && (*/}
+           {/*// В старом коде className="auth-err"*/}
+           {/*<Error error={error} />*/}
+           {/*)}*/}
            <input
              className={styles.registrationUserPage_form_input}
              type="text"

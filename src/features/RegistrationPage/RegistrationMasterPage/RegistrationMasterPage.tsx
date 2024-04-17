@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from 'react';
+import {Link} from "react-router-dom";
 import MultiSelect, {Option} from "../../../components/MultiSelect/MultiSelect";
 import {ConfirmPoliticsContext} from "../../../components/ConfirmPolitics/ConfirmPoliticsContext";
 import ConfirmPolitics from "../../../components/ConfirmPolitics/ConfirmPolitics";
+// import Error from "../../../components/Error/Error";
 import styles from './RegistrationMasterPage.module.scss';
-import {Link} from "react-router-dom";
 
 // Старая страница register-master.jsx  !!! НЕ УДАЛЯТЬ ФАЙЛ
 const RegistrationMasterPage = () => {
@@ -70,9 +71,7 @@ const RegistrationMasterPage = () => {
           <form className={styles.registrationMasterPage_form} onSubmit={onSubmit}>
             {/*{error && (*/}
             {/*  // В старом коде className="auth-err"*/}
-            {/*  <div className={styles.registrationMasterPage_form_error}>*/}
-            {/*    {error}*/}
-            {/*  </div>*/}
+            {/*  <Error error={error} />*/}
             {/*)}*/}
             <input
               className={styles.registrationMasterPage_form_input}
