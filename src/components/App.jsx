@@ -62,6 +62,8 @@ import RegistrationUserPage from "../features/RegistrationPage/RegistrationUserP
 import RegistrationMasterPage from "../features/RegistrationPage/RegistrationMasterPage/RegistrationMasterPage";
 import NotFoundPage from "../features/NotFoundPage/NotFoundPage";
 import LoginPage from "../features/LoginPage/LoginPage";
+import RegistrationMasterMoreInfoPage
+    from "../features/RegistrationPage/RegistrationMasterPage/components/RegistrationMasterMoreInfoPage/RegistrationMasterMoreInfoPage";
 
 function App() {
     const __location__ = useLocation()
@@ -133,6 +135,7 @@ function App() {
                         {/*<Route path="login" element={<Login />} />*/}
                         {/*Создала новую страницу LoginPage вместо Login*/}
                         <Route path="login" element={<LoginPage />} />
+
                         <Route path="register">
                             {/*<Route index element={<PickLog />} />*/}
                             {/*Создала новый элемент RegistrationPickPage вместо PickLog */}
@@ -140,12 +143,17 @@ function App() {
                             <Route index element={<RegistrationPickPage />} />
                             {/*<Route path="master" element={<RegisterMaster />} />*/}
                             {/*Создала новую страницу RegistrationMasterPage вместо RegisterMaster*/}
-                            <Route path="master" element={<RegistrationMasterPage />} />
+                            <Route path="master">
+                                <Route index element={<RegistrationMasterPage />} />
+                                {/*Добавила страницу RegistrationMasterMoreInfoPage*/}
+                                <Route path="more-info" element={<RegistrationMasterMoreInfoPage />} />
+                            </Route>
                             {/*<Route path="client" element={<Register />} />*/}
                             {/*Создала новую страницу RegistrationUserPage вместо Register */}
                             <Route path="client" element={<RegistrationUserPage />} />
                         </Route>
                     </Route>
+
                     <Route path="client" element={<ClientRoute />}>
                         <Route path="settings">
                             <Route index element={<ProfileFH />} />
@@ -164,6 +172,7 @@ function App() {
                         <Route path="chat/:id" element={<FChat />} />
                         <Route path="feedback/:username" element={<ReviewsMaster />} />
                     </Route>
+
                     <Route basename="master" path="master" element={<MasterRoute />}>
                         <Route path="wallet" element={<ChoiceOfReplenishmentMethod />} />
                         <Route path="wallet/:id" element={<WalletConfirm />} />
@@ -173,6 +182,7 @@ function App() {
                             <Route path="services" element={<Services />} />
                             <Route path="pictures" element={<Pictures />} />
                         </Route>
+
                         <Route path="chat/" element={<FChat baseRoute="/master/chat/" showSidebar />} />
                         <Route path="chat/:id" element={<FChat baseRoute="/master/chat/" showSidebar />} />
                         <Route path="orders">
@@ -181,12 +191,14 @@ function App() {
                             <Route path="canceled" element={<Canceled />} />
                             <Route path="all" element={<Allapplications />} />
                         </Route>
+
                         <Route path="feedback" element={<ProfileNumber />} />
                         <Route path="requests">
                             <Route index element={<AllOrders />} />
                             <Route path="personal" element={<PersonalRequests />} />
                             <Route path=":id" element={<MyOrders />} />
                         </Route>
+
                         <Route path="offers/create/:id" element={<OfferAService />} />
                     </Route>
                     {/*Добавила страницу 404,чтобы уведомить пользователя о том,

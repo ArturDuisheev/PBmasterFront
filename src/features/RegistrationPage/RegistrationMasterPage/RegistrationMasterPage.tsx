@@ -3,6 +3,7 @@ import MultiSelect, {Option} from "../../../components/MultiSelect/MultiSelect";
 import {ConfirmPoliticsContext} from "../../../components/ConfirmPolitics/ConfirmPoliticsContext";
 import ConfirmPolitics from "../../../components/ConfirmPolitics/ConfirmPolitics";
 import styles from './RegistrationMasterPage.module.scss';
+import {Link} from "react-router-dom";
 
 // Старая страница register-master.jsx  !!! НЕ УДАЛЯТЬ ФАЙЛ
 const RegistrationMasterPage = () => {
@@ -176,7 +177,9 @@ const RegistrationMasterPage = () => {
               {/*Вынесла в отдельный компонент, т.к. будет переиспользован*/}
               <ConfirmPolitics/>
 
-              <button className={styles.registrationMasterPage_form_button} type="submit">Регистрация</button>
+              <button className={styles.registrationMasterPage_form_button} type="submit">
+                <Link to="more-info" className={styles.loginPage_options_register}>Продолжить</Link>
+              </button>
           </form>
         </div>
       </ConfirmPoliticsContext.Provider>
