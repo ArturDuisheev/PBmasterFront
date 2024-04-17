@@ -884,6 +884,11 @@ li.dropdown:hover > .dropdown-content {
     background: none;
     border: none;
     color: #2e2e2e;
+    transition: color 0.3s ease;
+}
+
+.password-recovery__close:hover {
+    color: red;
 }
 
 .password-recovery__title {
@@ -922,12 +927,23 @@ li.dropdown:hover > .dropdown-content {
 .password-recovery-form__button {
     height: 40px;
     padding: 0 20px;
-    background: #d9573b;
+    background-color: #d9573b;
     border-radius: 8px;
     font-size: 14px;
     color: #fff;
     margin-left: 6px;
     border: none;
+    transition: background-color 0.3s ease;
+}
+
+.password-recovery-form__button:hover {
+    background-color: #d9ad3b;
+}
+
+@media (max-width: 435px) {
+    .password-recovery-form__button {
+        margin-top: 10px;
+    }
 }
 
 .password-recovery-form__error {

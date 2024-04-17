@@ -39,7 +39,6 @@ import AddDevices from "./addDevices/AddDevices";
 import ReviewsMaster from "./Pick-master/Reviews-master";
 import AddedDevices from './addDevices/AddedDevices'
 import TitleService from "./addDevices/TitleService";
-import Login from "./Registration/Login";
 import Archive from "./addDevices/Archive";
 import Mysuggest from "./mysuggest";
 import ClientRoute from './ClientRoute';
@@ -62,6 +61,7 @@ import HomePage from "../features/HomePage/HomePage";
 import RegistrationUserPage from "../features/RegistrationPage/RegistrationUserPage/RegistrationUserPage";
 import RegistrationMasterPage from "../features/RegistrationPage/RegistrationMasterPage/RegistrationMasterPage";
 import NotFoundPage from "../features/NotFoundPage/NotFoundPage";
+import LoginPage from "../features/LoginPage/LoginPage";
 
 function App() {
     const __location__ = useLocation()
@@ -130,7 +130,9 @@ function App() {
                         <Route path="reviews" element={<Reviews />} />
                         <Route path="articles" element={<Articles />} />
                         <Route path="contact" element={<MapMaster />} />
-                        <Route path="login" element={<Login />} />
+                        {/*<Route path="login" element={<Login />} />*/}
+                        {/*Создала новую страницу LoginPage вместо Login*/}
+                        <Route path="login" element={<LoginPage />} />
                         <Route path="register">
                             {/*<Route index element={<PickLog />} />*/}
                             {/*Создала новый элемент RegistrationPickPage вместо PickLog */}
@@ -187,6 +189,8 @@ function App() {
                         </Route>
                         <Route path="offers/create/:id" element={<OfferAService />} />
                     </Route>
+                    {/*Добавила страницу 404,чтобы уведомить пользователя о том,
+                    что запрашиваемая страница не доступна.*/}
                     <Route path="*" element={<NotFoundPage />} />
                 </Routes>
             </main>
