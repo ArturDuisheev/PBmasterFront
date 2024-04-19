@@ -92,11 +92,6 @@
       &_active {
         left: 0;
       }
-
-      @include mixins.xl {
-        display: flex;
-        justify-content: center;
-      }
     }
   }
 }

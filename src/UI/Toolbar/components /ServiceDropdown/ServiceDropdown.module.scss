@@ -8,7 +8,7 @@ $arrowRightIconPath: '/img/header/icons/arrow-right-icon.svg';
   left: 0;
   width: 270px;
 
-  @media screen and (max-width: 1080px) {
+  @include mixins.xl {
     left: -50px !important;
     width: fit-content !important;
   }
@@ -22,7 +22,7 @@ $arrowRightIconPath: '/img/header/icons/arrow-right-icon.svg';
     color: white !important;
     font-size: 16px !important;
 
-    @media screen and (max-width: 1080px) {
+    @include mixins.xl {
       padding: 0 !important;
       font-size: 24px !important;
       transition: all 0.4s ease !important;
