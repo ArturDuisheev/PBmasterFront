@@ -6,11 +6,7 @@ $arrowSearchIconPath: '/img/header/icons/search.svg';
   display: flex;
   border: none;
   border-radius: 5px 15px 15px 5px;
-  margin-right: 45px;
-
-  @include mixins.xl {
-    margin-right: 20px;
-  }
+  margin-right: 10px;
 
   &_input {
     background: #6b6b6b url('#{$arrowSearchIconPath}') no-repeat left 5px center;

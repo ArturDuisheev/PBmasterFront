@@ -55,6 +55,7 @@ const Toolbar = () => {
           <ListItem link="/articles" className={styles.toolbar_lists_item_link} name="Статьи"/>
           <ListItem link="/reviews" className={styles.toolbar_lists_item_link} name="Отзывы"/>
           <ListItem link="/contact" className={styles.toolbar_lists_item_link} name="Контакты"/>
+          <ListItem link="/orders" className={styles.toolbar_lists_item_link} name="Мои заказы"/>
         </ul>
         <div className="header__profile">
           {ui.isAuthorized ? (

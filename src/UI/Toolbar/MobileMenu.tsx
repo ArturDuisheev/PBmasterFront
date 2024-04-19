@@ -11,6 +11,7 @@ const MobileMenu = () => {
         <ListItem link="#" name="Статьи"/>
         <ListItem link="#" name="Отзывы"/>
         <ListItem link="#" name="Контакты"/>
+        <ListItem link="/orders" name="Мои заказы"/>
       </ul>
     </div>
   );
