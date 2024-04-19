@@ -64,10 +64,20 @@
       align-content: center;
       align-items: center;
       gap: 10px;
-      font-size: 18px;
+      font-size: 16px;
+
+      @include mixins.sm {
+        display: block;
+      }
 
       &_input[type="radio"] + &_label {
         position: relative;
+
+        @include mixins.sm {
+          display: block;
+          margin: 10px 0;
+        }
+
       }
 
       &_input[type='radio'] {
@@ -79,8 +89,8 @@
         content: ' ';
         display: inline-block;
         margin-right: 5px;
-        width: 17px;
-        height: 17px;
+        width: 15px;
+        height: 15px;
         border-radius: 50%;
         transition: border 0.15s ease-in-out;
       }
@@ -95,8 +105,8 @@
         height: 10px;
         border-radius: 50%;
         position: absolute;
-        top: 5px;
-        left: 5px;
+        top: 4.5px;
+        left: 4.5px;
         transition: border 0.15s ease-in-out;
       }
 

@@ -147,6 +147,15 @@ const RegistrationMasterPage = () => {
 
             <MultiSelect
               key="category_id"
+              placeholder="Категории услуг"
+              options={categoriesOptions}
+              onChange={(selected: Option[]) => setCategoryOptionSelected(selected)}
+              value={categoryOptionSelected}
+              isSelectAll={true}
+              menuPlacement={"bottom"}
+            />
+            <MultiSelect
+              key="category_id"
               placeholder="Категории"
               options={categoriesOptions}
               onChange={(selected: Option[]) => setCategoryOptionSelected(selected)}
